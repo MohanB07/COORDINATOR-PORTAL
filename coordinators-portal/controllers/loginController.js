@@ -17,7 +17,7 @@ exports.login = async (req, res) => {
                     res.redirect(`/starHome?eventName=${eventName}`);
                 }
                 else if(eventName == "Secretary"){
-                    res.redirect(`/adminHome`);
+                    res.redirect(`/adminHome?eventName=${eventName}`);
                 }
                  else{
                     res.redirect(`/home?eventName=${eventName}`);

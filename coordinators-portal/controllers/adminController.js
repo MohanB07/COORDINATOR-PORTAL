@@ -5,7 +5,13 @@ const {Winners} = require('../models/winnerSchema')
 
 exports.adminHome = async (req,res) => {
     try {
-        res.render("adminDetails");
+
+        const eventName = req.query.eventName;
+
+
+        
+
+        res.render("adminDetails" , {eventName : eventName});
     } catch (error) {
         console.error(error);
         res.status(500).send("Internal Server Error");

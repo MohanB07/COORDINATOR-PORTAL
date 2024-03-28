@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link href="../public/css/admin.css" rel="stylesheet">
+    <link href="css/admin.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -17,10 +17,10 @@
 <body>
     <section id="menu">
         <div class="sidebar">
-            <form id="codesprint" class="menu-item" action="" method="get">
+            <!-- <form id="codesprint" class="menu-item" action="" method="get">
                 <input type="hidden" name="eventName" value="">
                 <button type="submit" class="text-black btn">DASHBOARD</button>
-            </form>
+            </form> -->
             <form id="codesprint" class="menu-item" action="/event" method="get">
                 <input type="hidden" name="eventName" value="CODESPRINT">
                 <button type="submit" class="text-black btn">CODESPRINT</button>
@@ -30,7 +30,7 @@
                 <button type="submit" class="text-black btn">CRICKBID AUCTION</button>
             </form>
             <form id="codesprint" class="menu-item" action="/event" method="get">
-                <input type="hidden" name="eventName" value="CTRL + ALT + QODE">
+                <input type="hidden" name="eventName" value="CTRL ALT QODE">
                 <button type="submit" class="text-black btn">CTRL + ALT + QODE</button>
             </form>
             <form id="codesprint" class="menu-item" action="/event" method="get">
@@ -38,11 +38,11 @@
                 <button type="submit" class="text-black btn">FORTRESS CTF</button>
             </form>
             <form id="codesprint" class="menu-item" action="/event" method="get">
-                <input type="hidden" name="eventName" value="LAST STAND (F)">
+                <input type="hidden" name="eventName" value="LAST STAND - [FALL GUYS]">
                 <button type="submit" class="text-black btn">LAST STAND (F)</button>
             </form>
             <form id="codesprint" class="menu-item" action="/event" method="get">
-                <input type="hidden" name="eventName" value="LAST STAND (V)">
+                <input type="hidden" name="eventName" value="LAST STAND [Valorant]">
                 <button type="submit" class="text-black btn">LAST STAND (V)</button>
             </form>
             <form id="codesprint" class="menu-item" action="/event" method="get">
@@ -66,11 +66,12 @@
 
 <section id="content">
     <section id="title">
-        <span class="fw-normal text-white poppins-regular" id="head-text">Participant Details</span>
+        <span class="fw-normal text-white poppins-regular" id="head-text"> <%= eventName %> </span>
     </section>
 
     <section id="details" class="mx-3 my-3">
-        <% if (typeof eventName !== 'undefined' && eventName) { %>
+        <% if (typeof eventName !== 'undefined' && eventName !== "Secretary" && eventName) { %>
+            
             <% if (eventName === "STAR OF THIRAN") { %>
                 <table class="table" id="details-table">
                     <thead>
@@ -92,7 +93,8 @@
                                 <td><%= winner._id %></td>
                                 <td><%= winner.name %></td>
                                 <td><%= winner.eventName %></td>
-                                <td><%= winner.dept %></td>
+                                <td>  <%= winner.dept %>
+                                      <%= winner.programme %> </td>
                                 <td><%= winner.place %></td>
                                 <td><%= winner.phone %></td>
                                 <td><%= winner.attended %></td>
@@ -121,7 +123,9 @@
                                 <td><%= participant._id %></td>
                                 <td><%= participant.email %></td>
                                 <td><%= participant.name %></td>
-                                <td><%= participant.dept %></td>
+                                <td> <%= participant.prog %>
+                                    <%= participant.dept %> -
+                                    <%= participant.year %>  </td>
                                 <td><%= participant.year %></td>
                                 <td><%= participant.phone %></td>
                                 <td><%= participant.attended %></td>
